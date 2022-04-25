@@ -12,7 +12,7 @@ public class crudservice {
 	
 	Connection con;
 
-	//database connection
+	//database  connection
 	public crudservice(){
 		
 		try {
