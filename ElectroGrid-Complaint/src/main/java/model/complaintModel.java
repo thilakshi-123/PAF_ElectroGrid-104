@@ -19,7 +19,7 @@ public class complaintModel {
 		try {
 			connection = DBConnect.getDBConnection();
 			
-			//insert value
+			//insert value into db
 			preparedStatement = connection.prepareStatement("insert into complaint (account_number,name,phone,email,complaintType,subject,massage) values (?,?,?,?,?,?,?)");
 			preparedStatement.setString(1, account_number);
 			preparedStatement.setString(2, name);
@@ -47,7 +47,7 @@ public class complaintModel {
 		this.success = success;
 	}
 	
-	//Data display function
+	//Data retrive function
 	public String getComplaint() {
 		
 		Connection connection;
@@ -55,7 +55,6 @@ public class complaintModel {
 		String data="";
 		
 		try {
-			
 			connection = DBConnect.getDBConnection();
 			preparedStatement = connection.prepareStatement("SELECT * FROM complaint");
 			
@@ -111,7 +110,7 @@ public class complaintModel {
 		try {
 			connection = DBConnect.getDBConnection();
 			
-				//update value
+				//update value and query parts
 				preparedStatement = connection.prepareStatement("UPDATE complaint SET account_number=?,name=?,phone=?,email=?,complaintType=?,subject=?,massage=? where id=?");
 				preparedStatement.setString(1, account_number);
 				preparedStatement.setString(2, name);
@@ -141,7 +140,7 @@ public class complaintModel {
 		try {
 			connection = DBConnect.getDBConnection();
 			
-			//delete complaint
+			//delete complaint query
 			preparedStatement = connection.prepareStatement("DELETE FROM complaint WHERE id=?");
 			preparedStatement.setInt(1, id);
 			preparedStatement.execute();
